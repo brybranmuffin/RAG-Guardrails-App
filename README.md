@@ -56,7 +56,7 @@ To run the Jupyter notebook, follow these steps:
     ```
 
 3. **Open the Notebook:**
-    In your web browser, navigate to the Jupyter interface and open the notebook file (e.g., `cs10_rag_chatbot.ipynb`).
+    In your web browser, navigate to the Jupyter interface and open the notebook file (e.g., `application.ipynb`).
 
 4. **Run the Cells:**
     Execute the cells in the notebook sequentially. Make sure to run any setup cells before running the main code cells.
