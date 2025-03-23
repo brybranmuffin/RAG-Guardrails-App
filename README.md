@@ -18,7 +18,7 @@ Before running this notebook, you'll need:
 
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/brybranmuffin/RAG-Guardrails-App.git
    ```
 
 2. Set up a Python environment (recommended):
@@ -39,7 +39,7 @@ Before running this notebook, you'll need:
    ```
 
 
-## Running the Notebook
+## Running the Notebook Locally
 
 To run the Jupyter notebook, follow these steps:
 
@@ -66,5 +66,32 @@ To run the Jupyter notebook, follow these steps:
 
 6. **Stop the Jupyter Server:**
     Once you are done, you can stop the Jupyter server by pressing `Ctrl+C` in the terminal where it is running.
+
+## Running the Application in Google Colab
+
+To run the application in Google Colab, follow these steps:
+
+
+1. In your web browser, navigate to the Google Colab interface
+2. upload the application.ipynb file to Google Colab
+3. recreate the file structure in the left panel by clicking the folder icon and navigating to the files in the repo
+
+    root
+    |
+    |-- application.ipynb
+    |-- data
+    |   |-- cs10_lecture_notes.pdf
+    |   |-- cs10_policies.pdf
+    |   |-- ...
+    |-- config
+    |   |-- rails
+    |   |   |-- guardrails.json
+    |   |-- config.yml
+    |   |-- prompts.yml
+    |-- loaded_data
+3. run the notebook on colab
+
+
+
 
 
