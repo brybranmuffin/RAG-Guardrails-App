@@ -1,0 +1,86 @@
+# Define message types
+define user ask code
+    "generate code for me"
+    "Can you write a function in python that adds two numbers together?"
+    "Write a script"
+    "How do I write a function that does a specific task in a programming language?"
+    "write a function"
+    "create a program"
+    "implement a class"
+    "code a solution"
+    "develop an algorithm"
+    "build a script"
+
+define bot refuse code
+    "I'm sorry, I can't write the code for you. I can help you understand the code and the concepts behind it."
+    "I'm not a coding assistant, I can help you understand the concepts but cannot write code for you."
+    "Instead of writing code for you, I can explain the concepts and approach you might take."
+
+define user ask cs10
+    "what are algorithms?"
+    "explain data structures"
+    "how does recursion work?"
+    "what is big O notation?"
+    "explain binary search"
+    "what are the principles of object-oriented programming?"
+    "how do sorting algorithms work?"
+    "what is computational complexity?"
+    "explain linked lists"
+    "what is dynamic programming?"
+
+# Define flows
+define flow handle code request
+    user ask code
+    bot refuse code
+
+define flow handle cs10 question
+    user ask cs10
+    $response = execute rag_query(query=$user_message)
+    bot respond $response
+
+# Define actions for RAG integration
+define action rag_query
+    inputs:
+        query: string
+    outputs:
+        response: string
+
+# Define fallback for general questions
+define flow general question
+    user ...
+    $is_cs10 = execute check_if_cs10_related(query=$user_message)
+    if $is_cs10
+        $response = execute rag_query(query=$user_message)
+        bot respond $response
+    else
+        bot respond general
+
+define bot respond general
+    "I can answer questions about CS10 concepts or provide general information. What would you like to know?"
+
+define bot respond
+    $response
+
+# Define action to check if a query is CS10 related
+define action check_if_cs10_related
+    inputs:
+        query: string
+    outputs:
+        is_cs10: boolean
+
+# Self-check input rail to prevent harmful inputs
+define subflow self check input
+    $allowed = execute self_check_input
+    if not $allowed
+        bot refuse to respond
+        stop
+
+# Self-check output rail to ensure safe responses
+define subflow self check output
+    $allowed = execute self_check_output
+    if not $allowed
+        bot refuse to respond
+        stop
+
+define bot refuse to respond
+    "I'm sorry, I can't respond to that."
