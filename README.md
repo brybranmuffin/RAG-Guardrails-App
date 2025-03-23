@@ -76,19 +76,21 @@ To run the application in Google Colab, follow these steps:
 2. upload the application.ipynb file to Google Colab
 3. recreate the file structure in the left panel by clicking the folder icon and navigating to the files in the repo
 
-    root
-    |
-    |-- application.ipynb
-    |-- data
-    |   |-- cs10_lecture_notes.pdf
-    |   |-- cs10_policies.pdf
-    |   |-- ...
-    |-- config
-    |   |-- rails
-    |   |   |-- guardrails.json
-    |   |-- config.yml
-    |   |-- prompts.yml
-    |-- loaded_data
+ ```
+root
+├── application.ipynb
+├── data
+│   ├── cs10_lecture_notes.pdf
+│   ├── cs10_policies.pdf
+│   └── ...
+├── config
+│   ├── rails
+│   │   └── guardrails.json
+│   ├── config.yml
+│   └── prompts.yml
+└── loaded_data
+```
+
 3. run the notebook on colab
 
 
