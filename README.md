@@ -74,7 +74,8 @@ To run the application in Google Colab, follow these steps:
 
 1. In your web browser, navigate to the Google Colab interface
 2. upload the application.ipynb file to Google Colab
-3. recreate the file structure in the left panel by clicking the folder icon and navigating to the files in the repo
+3. recreate the file structure in the left panel
+4. upload the data, config, and prompts files to the left panel
 
  ```
 root
